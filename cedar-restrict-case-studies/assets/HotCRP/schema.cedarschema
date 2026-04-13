@@ -1,0 +1,29 @@
+// invariant: (isPCChair || isAreaChair) ==> has pcMember
+entity User {isPCChair: Bool, isAreaChair: Bool, pcMember?: Area};
+entity Area;
+entity Paper {authors: Set<User>, reviewers: Set<User>, area: Area};
+entity Review {ofPaper: Paper, author: User, isMetaReview: Bool};
+
+// Release_Reviews, Read, Update, Delete
+action ReleaseReview appliesTo {
+    principal: User,
+    resource: Review
+};
+
+action Read appliesTo {
+    principal: User,
+    resource: [Review, Paper],
+    context: {
+        isReleased?: Bool
+    }
+};
+
+action Update appliesTo {
+    principal: User,
+    resource: [Review, Paper]
+};
+
+action Delete appliesTo {
+    principal: User,
+    resource: [Review, Paper]
+};

@@ -1,0 +1,18 @@
+entity Course;
+entity Role;
+entity Staff in [Course] { role: Role };
+entity Student in [Course] ;
+entity Assignment { course: Course };
+entity Grade { student: Student, assignment: Assignment }; 
+
+action PostAssignment
+  appliesTo { principal: [Staff], resource: [Assignment] };
+
+action EditAssignment
+  appliesTo { principal: [Staff], resource: [Assignment] };
+
+action PostGrade
+  appliesTo { principal: [Staff], resource: [Grade] };
+
+action ViewGrade
+  appliesTo { principal: [Staff,Student], resource: [Grade] };

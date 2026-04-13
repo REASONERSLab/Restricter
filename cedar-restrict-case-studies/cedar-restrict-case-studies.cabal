@@ -1,0 +1,99 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           cedar-restrict-case-studies
+version:        0.1.0.0
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+library
+  exposed-modules:
+      Lib
+      Lib.Action
+      Lib.CedarFormat
+      Lib.Entity
+      Lib.GClassroom
+      Lib.GClassroom.Ops
+      Lib.GClassroom.Types
+      Lib.HotCRP
+      Lib.HotCRP.Ops
+      Lib.HotCRP.Types
+      Lib.IO
+      Lib.ProjMan
+      Lib.ProjMan.Ops
+      Lib.ProjMan.Types
+      Lib.Request
+      Lib.Util
+  other-modules:
+      Paths_cedar_restrict_case_studies
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cmdargs
+    , list-shuffle
+    , mtl
+    , random
+    , typed-process
+    , utf8-string
+  default-language: Haskell2010
+
+executable cedar-restrict-case-study
+  main-is: Main.hs
+  other-modules:
+      Config
+      GClassroom.Config
+      GClassroom.GenEntities
+      GClassroom.GenLogs
+      HotCRP.Config
+      HotCRP.GenEntities
+      HotCRP.GenLogs
+      ProjMan.Config
+      ProjMan.GenEntities
+      ProjMan.GenLogs
+      Sampling
+      Paths_cedar_restrict_case_studies
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cedar-restrict-case-studies
+    , cmdargs
+    , list-shuffle
+    , mtl
+    , random
+    , typed-process
+    , utf8-string
+  default-language: Haskell2010
+
+test-suite cedar-restrict-case-study-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_cedar_restrict_case_studies
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cedar-restrict-case-studies
+    , cmdargs
+    , list-shuffle
+    , mtl
+    , random
+    , typed-process
+    , utf8-string
+  default-language: Haskell2010
